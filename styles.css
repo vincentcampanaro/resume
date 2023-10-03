@@ -6,9 +6,13 @@ body {
     align-items: center;
     height: 100vh;
     padding: 20px;
+    overflow: hidden;
 }
 
 form {
+    opacity: 0;
+    transform: translateY(-50px);
+    transition: opacity 1s ease, transform 1s ease;
     background-color: #fff;
     padding: 40px;
     border-radius: 8px;
@@ -17,10 +21,19 @@ form {
     max-width: 400px;
 }
 
+form.loaded {
+    opacity: 1;
+    transform: translateY(0);
+}
+
 label {
     display: block;
     margin-bottom: 8px;
     font-weight: 700;
+}
+
+input[type="text"].error, input[type="email"].error {
+    border-color: red;
 }
 
 input[type="text"], input[type="email"] {
@@ -47,4 +60,15 @@ input[type="submit"] {
 
 input[type="submit"]:hover {
     background-color: #0056b3;
+}
+
+.feedback {
+    margin-top: 20px;
+    font-size: 16px;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+}
+
+.feedback.visible {
+    opacity: 1;
 }
