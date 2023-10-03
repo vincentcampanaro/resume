@@ -17,13 +17,43 @@
         <input type="email" id="email" name="email" required>
 
         <input type="submit" value="Download Resume">
+        <div class="feedback" id="feedback"></div>
     </form>
 
     <script>
         const form = document.getElementById('resumeForm');
+        const feedback = document.getElementById('feedback');
 
         form.addEventListener('submit', (event) => {
             event.preventDefault();
+
+            const name = document.getElementById('name');
+            const email = document.getElementById('email');
+
+            name.classList.remove('error');
+            email.classList.remove('error');
+
+            if (!name.value && !email.value) {
+                feedback.textContent = "Please fill in your name and email";
+                name.classList.add('error');
+                email.classList.add('error');
+                return;
+            }
+
+            if (!name.value) {
+                feedback.textContent = "Please fill in your name";
+                name.classList.add('error');
+                return;
+            }
+
+            if (!email.value) {
+                feedback.textContent = "Please fill in your email";
+                email.classList.add('error');
+                return;
+            }
+
+            feedback.textContent = "Thank you. Resume Downloading...";
+            feedback.classList.add('visible');
 
             const formData = new FormData(form);
             formData.append('origin', window.location.origin);
@@ -39,6 +69,11 @@
                 })
                 .catch(error => console.error('Error:', error));
         });
+
+        // Load animation
+        window.onload = () => {
+            form.classList.add('loaded');
+        };
     </script>
 </body>
 </html>
