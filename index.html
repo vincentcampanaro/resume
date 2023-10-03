@@ -62,12 +62,14 @@
                 .then(response => response.text())
                 .then(result => {
                     if (result === 'Success') {
-                        window.location.href = 'resume.pdf';
+                        feedback.textContent = "Thank you. Resume has been sent to your email.";
                     } else {
-                        alert('Error saving data. Please try again.');
+                        feedback.textContent = result; // Display the actual error returned by the script
                     }
                 })
-                .catch(error => console.error('Error:', error));
+                .catch(error => {
+                    feedback.textContent = "An unexpected error occurred. Please try again.";
+                    console.error('Error:', error);
         });
 
         // Load animation
