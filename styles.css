@@ -63,8 +63,40 @@ input[type="submit"] {
     transition: background-color 0.3s ease, color 0.3s ease;
 }
 
+:not(.dark-mode) input[type="submit"]:hover {
+    background-color: #003871;
+}
+
+/* Animation Effects */
+@keyframes slideFade {
+    0% {
+        transform: scale(0.95) translateY(5px);
+        opacity: 0.8;
+    }
+    100% {
+        transform: scale(1) translateY(0);
+        opacity: 1;
+    }
+}
+
+@keyframes clickEffect {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(0.98);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
 input[type="submit"]:hover {
-    background-color: #003366;
+    animation: slideFade 0.3s forwards;
+}
+
+input[type="submit"]:active {
+    animation: clickEffect 0.15s forwards;
 }
 
 .feedback {
