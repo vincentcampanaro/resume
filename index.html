@@ -91,6 +91,17 @@
         window.onload = () => {
             form.classList.add('loaded');
         };
+
+        // Dynamic animation when clicking the button
+        const submitButton = document.querySelector("input[type='submit']");
+        submitButton.addEventListener('click', (e) => {
+            e.preventDefault();
+
+            submitButton.style.transform = 'scale(0.95)';
+            setTimeout(() => {
+                submitButton.style.transform = 'scale(1)';
+            }, 100);
+        });
     </script>
 </body>
 </html>
