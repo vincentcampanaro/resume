@@ -2,6 +2,27 @@
 
 Welcome to the Resume Downloader! This application utilizes Google Apps Script to allow users to request a resume, which is then sent to their email.
 
+## 🌟 Features
+
+### 🖥️ Frontend
+- **Responsive Design**: The web application is mobile-responsive and adjusts to different screen sizes.
+- **Dark Mode Toggle**: Users can toggle between light and dark mode themes.
+- **Dynamic Feedback**: Provides immediate feedback based on user actions (e.g., if fields are left empty).
+- **Ripple Animation**: Adds a ripple effect animation when the "Send Resume" button is clicked.
+- **Dynamic Favicon**: The favicon changes based on the user's preferred color scheme (dark mode vs. light mode).
+
+### ⚙️ Backend (Google Apps Script)
+- **Google Sheets Integration**: Upon form submission, user data (name and email) is stored in a specified Google Sheets spreadsheet.
+- **Email Functionality**: The user receives an email with Vincent Campanaro's resume attached.
+- **Name Parsing**: The script extracts the first name of the user for a personalized email greeting. It considers common middle names (e.g., "Jane", "Lee") to ensure the correct extraction of the first name.
+- **Security**: The script checks the origin of the request to prevent unauthorized access.
+
+## 📁 Files
+- `index.html`: Contains the structure of the web page, including the form and the dark mode toggle.
+- `resume.css`: Contains the styling for the web page. It includes styles for both light and dark modes.
+- `config.js`: Contains configuration variables, such as the endpoint for the Google Apps Script.
+- **Google Apps Script**: Contains the server-side logic. This script interacts with Google Sheets and Gmail to store user data and send emails.
+
 ## 🛠️ My Personal Setup
 
 - **Platforms:** Google Apps Script, Google Sheets, Google Drive (Resume)
@@ -28,16 +49,12 @@ I set up a dedicated email, `resume@myself.com`, for this project. Initially, I 
 - Create a new JS file and copy the provided `config.js` content.
 - Update the `endpoint` in `config.js` to match the URL endpoint you got from deploying your Google Apps Script as a web app.
 
-### 4. Middle Names Configuration 📝
-
-The script uses a list of common middle names to properly address recipients. Update or expand the list of middle names as needed.
-
-### 5. Hosting 🌐
+### 4. Hosting 🌐
 
 - You can host your files on any web server or static site hosting platform.
 - Ensure that your domain or hosting platform is whitelisted in the Google Apps Script to avoid CORS issues.
 
-### 6. Test 🧪
+### 5. Test 🧪
 
 Navigate to your hosted `index.html` and try submitting the form to ensure everything works as expected.
 
