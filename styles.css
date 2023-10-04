@@ -61,6 +61,8 @@ input[type="submit"] {
     font-size: 16px;
     cursor: pointer;
     transition: background-color 0.3s ease, color 0.3s ease;
+    position: relative;
+    z-index: 1;
 }
 
 :not(.dark-mode) input[type="submit"]:hover {
@@ -91,6 +93,13 @@ input[type="submit"] {
     }
 }
 
+@keyframes ripple {
+    to {
+        transform: scale(4);
+        opacity: 0;
+    }
+}
+
 input[type="submit"]:hover {
     animation: slideFade 0.3s forwards;
 }
@@ -108,6 +117,21 @@ input[type="submit"]:active {
 
 .feedback.visible {
     opacity: 1;
+}
+
+/* Ripple Effect */
+.ripple-container {
+    position: relative;
+    overflow: hidden;
+}
+
+.ripple-container span {
+    position: absolute;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.7);
+    transform: scale(0);
+    animation: ripple 1s linear;
+    pointer-events: none;
 }
 
 /* Light Mode Styles */
