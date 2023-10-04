@@ -29,11 +29,9 @@
 </form>
 
 <script>
-    document.addEventListener('DOMContentLoaded', function() {
-        setTimeout(() => {
-            document.getElementById('resumeForm').classList.add('loaded');
-        }, 100);
-    });
+    window.onload = function() {
+        form.classList.add('loaded');
+    };
 
     const form = document.getElementById('resumeForm');
     const feedback = document.getElementById('feedback');
