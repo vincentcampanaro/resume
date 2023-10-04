@@ -1,6 +1,6 @@
-# 📄 Resume Downloader
+# 📄 Resume Sender
 
-Welcome to the Resume Downloader! This application utilizes Google Apps Script to allow users to request a resume, which is then sent to their email.
+Welcome to the Resume Sender! This application utilizes Google Apps Script to allow users to request a resume, which is then sent to their email.
 
 ## 🌟 Features
 
