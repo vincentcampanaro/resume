@@ -1,6 +1,8 @@
 # 📄 Resume Sender
 
-Welcome to the Resume Sender! This application utilizes Google Apps Script to allow users to request a resume, which is then sent to their email.
+Welcome to the Resume Sender! This application utilizes Google Apps Script to allow users to request a resume, which is then sent to their email. 
+
+Feel free to see how it works at [resume.vincentcampanaro.com](https://resume.vincentcampanaro.com)
 
 ## 🌟 Features
 
@@ -8,12 +10,11 @@ Welcome to the Resume Sender! This application utilizes Google Apps Script to al
 - **Responsive Design**: The web application is mobile-responsive and adjusts to different screen sizes.
 - **Dark Mode Toggle**: Users can toggle between light and dark mode themes.
 - **Dynamic Feedback**: Provides immediate feedback based on user actions (e.g., if fields are left empty).
-- **Ripple Animation**: Adds a ripple effect animation when the "Send Resume" button is clicked.
 - **Dynamic Favicon**: The favicon changes based on the user's preferred color scheme (dark mode vs. light mode).
 
 ### ⚙️ Backend (Google Apps Script)
 - **Google Sheets Integration**: Upon form submission, user data (name and email) is stored in a specified Google Sheets spreadsheet.
-- **Email Functionality**: The user receives an email with Vincent Campanaro's resume attached.
+- **Email Functionality**: The user receives a personalized email with the resume attached.
 - **Name Parsing**: The script extracts the first name of the user for a personalized email greeting. It considers common middle names (e.g., "Jane", "Lee") to ensure the correct extraction of the first name.
 - **Security**: The script checks the origin of the request to prevent unauthorized access.
 
@@ -34,13 +35,16 @@ I set up a dedicated email, `resume@myself.com`, for this project. Initially, I 
 ### 1. Google Apps Script Setup 📑
 
 - Go to [Google Apps Script](https://script.google.com) and create a new script.
-- Copy the provided Google Apps Script code into your new script file.
-- Modify the `SPREADSHEET_ID` to match your Google Sheet's ID where you'd like to store email addresses.
-- In the Apps Script dashboard, click on 'Publish' > 'Deploy as a web app' to get the script URL endpoint. This will be used in your frontend to send data to.
-
-### 2. Email Configuration 📧
-
+- Copy the provided Google Apps Script code from the repository into your new script file.
+- Update the following variables in the script: `SPREADSHEET_ID`, `SHEET_NAME`, and `FILE_ID`.
 - Within the `sendEmailToUser` function, adjust the `from` field in the `GmailApp.sendEmail` method to use your desired email address.
+
+**Gmail Configuration Note:** For the Gmail API to work with your desired email, you have two options:
+
+  1. Deploy the Apps Script using the Gmail account associated with the desired email address.
+  2. Use a personal Gmail account or another Gmail account, and set up your desired email as a "send-as" address. This allows you to send emails as if they were from the desired address, even though they're sent via the personal Gmail account. For a guide on how to set up a "send-as" address in Gmail, refer to [this link](https://support.google.com/mail/answer/22370?hl=en).
+
+- Once you've set up the script, navigate to the Apps Script dashboard. Click on `Publish` > `Deploy as a web app`. This provides a script URL endpoint, which you'll use in the frontend to send data.
 
 ### 3. Frontend Setup 🎨
 
@@ -58,4 +62,4 @@ I set up a dedicated email, `resume@myself.com`, for this project. Initially, I 
 
 Navigate to your hosted `index.html` and try submitting the form to ensure everything works as expected.
 
-That's it! ✨ With these steps, you'll have a fully functioning Resume Downloader tailored for your needs. Adjust and expand upon this base to fit any additional requirements or functionalities you might want to add in the future.
+That's it! ✨ With these steps, you'll have a fully functioning Resume Sender tailored for your needs. Adjust and expand upon this base to fit any additional requirements or functionalities you might want to add in the future.
