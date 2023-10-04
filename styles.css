@@ -7,12 +7,13 @@ body {
     height: 100vh;
     padding: 20px;
     overflow: hidden;
+    transition: background-color 0.3s ease, color 0.3s ease; /* Added fade transition */
 }
 
 form {
     opacity: 0;
     transform: translateY(-50px);
-    transition: opacity 1s ease, transform 1s ease;
+    transition: opacity 1s ease, transform 1s ease, background-color 0.3s ease, color 0.3s ease; /* Added fade transition */
     background-color: #fff;
     padding: 40px;
     border-radius: 8px;
@@ -43,6 +44,7 @@ input[type="text"], input[type="email"] {
     border: 1px solid #ccc;
     border-radius: 4px;
     font-size: 16px;
+    transition: background-color 0.3s ease, color 0.3s ease; /* Added fade transition */
 }
 
 input[type="submit"] {
@@ -55,7 +57,7 @@ input[type="submit"] {
     border-radius: 4px;
     font-size: 16px;
     cursor: pointer;
-    transition: background-color 0.3s ease;
+    transition: background-color 0.3s ease, color 0.3s ease; /* Added fade transition */
 }
 
 input[type="submit"]:hover {
@@ -66,9 +68,34 @@ input[type="submit"]:hover {
     margin-top: 20px;
     font-size: 16px;
     opacity: 0;
-    transition: opacity 0.5s ease;
+    transition: opacity 0.5s ease, background-color 0.3s ease, color 0.3s ease; /* Added fade transition */
 }
 
 .feedback.visible {
     opacity: 1;
+}
+
+/* Dark Mode Styles */
+body.dark-mode {
+    background-color: #333;
+    color: #f8f9fa;
+}
+
+form.dark-mode {
+    background-color: #444;
+}
+
+input[type="text"].dark-mode, input[type="email"].dark-mode {
+    background-color: #555;
+    color: #f8f9fa;
+    border-color: #666;
+}
+
+input[type="submit"].dark-mode {
+    background-color: #555;
+    color: #f8f9fa;
+}
+
+.feedback.dark-mode {
+    color: #f8f9fa;
 }
