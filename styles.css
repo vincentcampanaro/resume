@@ -1,6 +1,6 @@
 body {
     font-family: 'Roboto', sans-serif;
-    background-color: #f8f9fa;
+    background-color: #333;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -81,21 +81,20 @@ body.dark-mode {
     color: #f8f9fa;
 }
 
-form.dark-mode {
+body.dark-mode form, 
+body.dark-mode input[type="text"], 
+body.dark-mode input[type="email"], 
+body.dark-mode .feedback {
+    transition: background-color 0.3s ease, color 0.3s ease;
     background-color: #444;
+    color: #f8f9fa;
 }
 
-input[type="text"].dark-mode, input[type="email"].dark-mode {
-    background-color: #555;
-    color: #f8f9fa;
+body.dark-mode input[type="text"], 
+body.dark-mode input[type="email"] {
     border-color: #666;
 }
 
-input[type="submit"].dark-mode {
+body.dark-mode input[type="submit"] {
     background-color: #555;
-    color: #f8f9fa;
-}
-
-.feedback.dark-mode {
-    color: #f8f9fa;
 }
