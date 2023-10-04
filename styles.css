@@ -1,6 +1,7 @@
 body {
     font-family: 'Roboto', sans-serif;
     background-color: #333;
+    color: #f8f9fa;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -41,10 +42,12 @@ input[type="text"], input[type="email"] {
     width: 100%;
     padding: 10px;
     margin-bottom: 20px;
-    border: 1px solid #ccc;
+    border: 1px solid #666;
     border-radius: 4px;
     font-size: 16px;
     transition: background-color 0.3s ease, color 0.3s ease;
+    color: #f8f9fa;
+    background-color: #555;
 }
 
 input[type="submit"] {
@@ -75,26 +78,22 @@ input[type="submit"]:hover {
     opacity: 1;
 }
 
-/* Dark Mode Styles */
+/* Light Mode Styles */
 body.dark-mode {
-    background-color: #333;
-    color: #f8f9fa;
+    background-color: #f8f9fa;
+    color: #333;
 }
 
-body.dark-mode form, 
+body.dark-mode form,
 body.dark-mode input[type="text"], 
 body.dark-mode input[type="email"], 
 body.dark-mode .feedback {
-    transition: background-color 0.3s ease, color 0.3s ease;
-    background-color: #444;
-    color: #f8f9fa;
-}
-
-body.dark-mode input[type="text"], 
-body.dark-mode input[type="email"] {
-    border-color: #666;
+    background-color: #fff;
+    color: #333;
+    border-color: #ccc;
 }
 
 body.dark-mode input[type="submit"] {
-    background-color: #333;
+    background-color: #007bff;
+    color: #fff;
 }
