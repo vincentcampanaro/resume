@@ -4,10 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Resume - Vincent Campanaro</title>
-    <link rel="icon" type="image/ico" sizes="32x32" href="/favicons/favicon-32.ico">
-    <link rel="apple-touch-icon" sizes="180x180" href="/favicons/favicon-180.png">
-    <link rel="icon" type="image/png" sizes="192x192" href="/favicons/favicon-192.png">
-    <link rel="icon" type="image/png" sizes="512x512" href="/favicons/favicon-512.png">
+    <link id="favicon32" rel="icon" type="image/ico" sizes="32x32" href="/favicons/favicon-32.ico">
+    <link id="appleFavicon" rel="apple-touch-icon" sizes="180x180" href="/favicons/favicon-180.png">
+    <link id="favicon192" rel="icon" type="image/png" sizes="192x192" href="/favicons/favicon-192.png">
+    <link id="favicon512" rel="icon" type="image/png" sizes="512x512" href="/favicons/favicon-512.png">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:400,700&display=swap">
     <link rel="stylesheet" href="styles.css">
     <script src="config.js"></script>
@@ -90,6 +90,31 @@
                     feedback.textContent = "An unexpected error occurred. Please try again.";
                     console.error('Error:', error);
                 });
+        });
+
+        // Favicon Dark Mode Detection
+        const darkModeMediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
+    
+        function setFaviconForTheme(mode) {
+          if (mode === "dark") {
+            document.getElementById("favicon32").href = "/favicons/favicon-white-32.ico";
+            document.getElementById("appleFavicon").href = "/favicons/favicon-white-180.png";
+            document.getElementById("favicon192").href = "/favicons/favicon-white-192.png";
+            document.getElementById("favicon512").href = "/favicons/favicon-white-512.png";
+          } else {
+            document.getElementById("favicon32").href = "/favicons/favicon-32.ico";
+            document.getElementById("appleFavicon").href = "/favicons/favicon-180.png";
+            document.getElementById("favicon192").href = "/favicons/favicon-192.png";
+            document.getElementById("favicon512").href = "/favicons/favicon-512.png";
+          }
+        }
+    
+        // Set the favicon based on the initial color mode
+        setFaviconForTheme(darkModeMediaQuery.matches ? "dark" : "light");
+    
+        // Update the favicon if the user changes their color mode preference
+        darkModeMediaQuery.addEventListener('change', event => {
+          setFaviconForTheme(event.matches ? "dark" : "light");
         });
 
         /* Dark Mode Toggle Event */
