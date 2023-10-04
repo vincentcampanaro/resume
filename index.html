@@ -22,14 +22,16 @@
     <label for="email">Email:</label>
     <input type="email" id="email" name="email" required>
 
-    <input type="submit" value="Download Resume">
+    <div class="ripple-container">
+        <input type="submit" value="Download Resume">
+    </div>
     <div class="feedback" id="feedback"></div>
 </form>
 
-    <script>
-        const form = document.getElementById('resumeForm');
-        const feedback = document.getElementById('feedback');
-        const toggleDarkMode = document.getElementById('toggleDarkMode');
+<script>
+    const form = document.getElementById('resumeForm');
+    const feedback = document.getElementById('feedback');
+    const toggleDarkMode = document.getElementById('toggleDarkMode');
 
         form.addEventListener('submit', (event) => {
             event.preventDefault();
@@ -86,21 +88,21 @@
         toggleDarkMode.addEventListener('click', () => {
             document.body.classList.toggle('dark-mode');
         });
-        
-        // Load animation
-        window.onload = () => {
-            form.classList.add('loaded');
-        };
-
-        // Dynamic animation when clicking the button
-        const submitButton = document.querySelector("input[type='submit']");
-        submitButton.addEventListener('click', (e) => {
-            e.preventDefault();
-
-            submitButton.style.transform = 'scale(0.95)';
+    
+        // Ripple animation when clicking the button
+        document.querySelector('.ripple-container').addEventListener('click', function (e) {
+            let ripple = document.createElement('span');
+            this.appendChild(ripple);
+    
+            let x = e.clientX - this.getBoundingClientRect().left;
+            let y = e.clientY - this.getBoundingClientRect().top;
+    
+            ripple.style.left = `${x}px`;
+            ripple.style.top = `${y}px`;
+            
             setTimeout(() => {
-                submitButton.style.transform = 'scale(1)';
-            }, 100);
+                ripple.remove();
+            }, 1000);
         });
     </script>
 </body>
