@@ -29,6 +29,12 @@
 </form>
 
 <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        setTimeout(() => {
+            document.getElementById('resumeForm').classList.add('loaded');
+        }, 100);
+    });
+
     const form = document.getElementById('resumeForm');
     const feedback = document.getElementById('feedback');
     const toggleDarkMode = document.getElementById('toggleDarkMode');
